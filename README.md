@@ -1,5 +1,7 @@
 # OpenCodeRemote — opencode HarmonyOS 遥控客户端
 
+[![License: GPL v2](https://img.shields.io/badge/License-GPLv2-blue.svg)](https://github.com/Jacob-biu/OpenCodeRemote/blob/master/LICENSE)
+
 一个 [opencode（AI 编码代理）](https://opencode.ai) 的 HarmonyOS 移动端遥控应用。
 把运行在你电脑上的 opencode 服务"装进口袋"：手机上扫码配对后，随时浏览会话、
 发送指令 / 提问、查看 AI 产出的 Markdown 渲染结果，并对 Agent 的敏感操作做**权限审批**。
@@ -85,3 +87,7 @@ hdc shell aa start -a EntryAbility -b com.opencode.remote
 | --- | --- |
 | `ohos.permission.INTERNET` | 连接 opencode 服务端 |
 | `ohos.permission.CAMERA` | 扫描桌面端配对二维码 |
+
+## 开源协议
+
+本项目基于 [GPL-2.0](LICENSE)（GNU General Public License v2.0）发布。

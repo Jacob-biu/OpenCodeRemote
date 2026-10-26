@@ -1,6 +1,7 @@
 {
   "modelVersion": "5.0.0",
   "description": "Remote control client for the opencode AI coding agent.",
+  "license": "GPL-2.0",
   "dependencies": {},
   "devDependencies": {}
 }
