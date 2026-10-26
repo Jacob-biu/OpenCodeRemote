@@ -1,0 +1,24 @@
+{
+  "color": [
+    { "name": "start_window_background", "value": "#F1F3F5" },
+    { "name": "page_bg", "value": "#F1F3F5" },
+    { "name": "card_bg", "value": "#FFFFFF" },
+    { "name": "input_bg", "value": "#EEF1F6" },
+    { "name": "divider", "value": "#E5EAF2" },
+    { "name": "primary", "value": "#0A6CFF" },
+    { "name": "btn_secondary", "value": "#E3EDFF" },
+    { "name": "text_primary", "value": "#182431" },
+    { "name": "text_secondary", "value": "#8A94A6" },
+    { "name": "bubble_user", "value": "#0A6CFF" },
+    { "name": "bubble_user_bg", "value": "#EDEDED" },
+    { "name": "bubble_time", "value": "#8A94A6" },
+    { "name": "reasoning_bg", "value": "#E8F0FC" },
+    { "name": "tool_bg", "value": "#FFFFFF" },
+    { "name": "success", "value": "#2BA471" },
+    { "name": "danger", "value": "#E64845" },
+    { "name": "danger_bg", "value": "#FDE8E8" },
+    { "name": "primary_bg", "value": "#E3EDFF" },
+    { "name": "warning", "value": "#E86A17" },
+    { "name": "warning_bg", "value": "#FDEEE2" }
+  ]
+}

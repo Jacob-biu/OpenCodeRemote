@@ -1,0 +1,48 @@
+# —— DevEco Studio / HarmonyOS 工程忽略规则 ——
+
+# 构建产物
+build/
+.hap/
+.hsp/
+*.hap
+*.hsp
+
+# hvigor 构建缓存与日志
+.hvigor/
+
+# ohos 依赖
+oh_modules/
+node_modules/
+
+# 本地环境配置（含 SDK 路径，因人而异）
+local.properties
+
+# IDE
+.idea/
+
+# 凭证 / 签名相关（不要入库）
+*.cer
+*.p12
+*.p7b
+*.keystore
+signoha?/
+**/sign/
+
+# C/C++ 构建中间产物
+.cxx/
+.clangd/
+**/.cache/
+
+# 设备调试 / 取证产物
+hdc*.log
+*.hdc
+
+# 其他
+.DS_Store
+Thumbs.db
+
+# 本地 AI 工作区（记忆 / 截图 / 诊断脚本）
+.workbuddy/
+
+# 根目录下的设备日志取证文件
+/*.txt

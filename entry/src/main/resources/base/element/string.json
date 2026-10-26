@@ -1,0 +1,28 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "OpenCode 远程操控客户端"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "OpenCodeRemote 主能力"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "OpenCodeRemote"
+    },
+    {
+      "name": "internet_permission_reason",
+      "value": "需要访问网络以连接 opencode 服务器"
+    },
+    {
+      "name": "camera_permission_reason",
+      "value": "需要使用相机扫描桌面端 opencode 的配对二维码"
+    },
+    {
+      "name": "imagevideo_permission_reason",
+      "value": "需要读取相册图片，以便把选中的照片发送到电脑端 opencode"
+    }
+  ]
+}

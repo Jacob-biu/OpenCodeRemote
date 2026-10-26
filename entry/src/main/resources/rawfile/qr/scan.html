@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>二维码解码器</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #10151c; overflow: hidden;
+    font-family: -apple-system, "HarmonyOS Sans SC", sans-serif; }
+  #status { display: none; position: fixed; left: 0; right: 0; top: 45%; text-align: center; color: #cfd8e3; font-size: 14px; }
+  #fallback { display: none; position: fixed; left: 0; right: 0; bottom: 6%; text-align: center; }
+  #file { display: none; }
+  #pick { display: inline-block; padding: 9px 18px; border-radius: 20px; background: rgba(255,255,255,0.12);
+    color: #fff; font-size: 14px; border: 1px solid rgba(255,255,255,0.3); }
+  canvas { display: none; }
+</style>
+</head>
+<body>
+<div id="status">解码器就绪</div>
+<div id="fallback"><label id="pick" for="file">从相册选择二维码图片</label>
+  <input id="file" type="file" accept="image/*"></div>
+<canvas id="canvas"></canvas>
+
+<script src="jsQR.js"></script>
+<script>
+  const statusEl = document.getElementById('status');
+  const fileEl = document.getElementById('file');
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+  function report(text) {
+    statusEl.textContent = '识别成功';
+    try {
+      if (window.qrBridge && window.qrBridge.onResult) {
+        window.qrBridge.onResult(text);
+      }
+    } catch (e) {}
+  }
+
+  function fail(msg) {
+    statusEl.textContent = msg;
+    try { if (window.qrBridge && window.qrBridge.onError) { window.qrBridge.onError(msg); } } catch (e) {}
+  }
+
+  /** 在图像数据中查找二维码 */
+  function decodeData(data, w, h) {
+    try {
+      const res = jsQR(data, w, h, { inversionAttempts: 'attemptBoth' });
+      if (res && res.data) { return res.data; }
+    } catch (e) {
+      return '';
+    }
+    return '';
+  }
+
+  /** 供 ArkTS 调用：传入 base64 图片数据并解码 */
+  window.qrDecodeBase64 = function (b64) {
+    statusEl.textContent = '正在识别…';
+    const img = new Image();
+    img.onload = function () {
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+      const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const text = decodeData(data.data, canvas.width, canvas.height);
+      if (text) { report(text); } else { fail('图片中未识别到二维码'); }
+    };
+    img.onerror = function () { fail('图片解码失败'); };
+    img.src = 'data:image/jpeg;base64,' + b64;
+  };
+
+  /** 页面内选择图片（相册/文件） */
+  fileEl.addEventListener('change', function (ev) {
+    const f = ev.target.files && ev.target.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = new Image();
+      img.onload = function () {
+        canvas.width = img.width; canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const text = decodeData(data.data, canvas.width, canvas.height);
+        if (text) { report(text); } else { fail('图片中未识别到二维码'); }
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(f);
+  });
+</script>
+</body>
+</html>
