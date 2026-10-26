@@ -1,24 +1,12 @@
 {
   "app": {
-    "signingConfigs": [
-      {
-        "name": "default",
-        "type": "HarmonyOS",
-        "material": {
-          "certpath": "C:\\Users\\27772\\.ohos\\config\\default_harmonyOS_fx251jwZdHTMZ5XLxaVW5HXUi_NuXrMSkJ4uUbG5OhY=.cer",
-          "keyAlias": "debugKey",
-          "keyPassword": "0000001BE26336A517A03DA6849669074E3F19B370AF2EC4926B5B99AAFBF64FE8FD1D0668FAB15A623304",
-          "profile": "C:\\Users\\27772\\.ohos\\config\\default_harmonyOS_fx251jwZdHTMZ5XLxaVW5HXUi_NuXrMSkJ4uUbG5OhY=.p7b",
-          "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\27772\\.ohos\\config\\default_harmonyOS_fx251jwZdHTMZ5XLxaVW5HXUi_NuXrMSkJ4uUbG5OhY=.p12",
-          "storePassword": "0000001BEFC057128D5964F8806279C6EDEEE7D70413BA10F3EC320ECF44846A2978885AC3C7E23290866D"
-        }
-      }
-    ],
+    // 签名配置（signingConfigs）不入库：请在本地通过 DevEco Studio
+    // 「File > Project Structure > Signing Configs」自动生成，
+    // 或参考 build-profile.json5.local.bak 手动填写。
+    "signingConfigs": [],
     "products": [
       {
         "name": "default",
-        "signingConfig": "default",
         "compatibleSdkVersion": "6.0.2(22)",
         "runtimeOS": "HarmonyOS",
         "targetSdkVersion": "6.1.1(24)"
